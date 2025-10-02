@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ultimate Task Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="navbar">
+        <h1>📋 Ultimate Task Manager</h1>
+        <hr class="top-line" />
+      </header>
+
+      <section class="main-content">
+        <!-- Left Side - Form -->
+        <div class="task-form">
+          <h2>Add / Update Task</h2>
+          <div class="form-controls">
+            <input type="text" id="taskInput" placeholder="Task title" />
+            <select id="taskCategory">
+              <option value="work">Work</option>
+              <option value="personal">Personal</option>
+              <option value="urgent">Urgent</option>
+            </select>
+            <select id="taskPriority">
+              <option value="high">High</option>
+              <option value="medium" selected>Medium</option>
+              <option value="low">Low</option>
+            </select>
+            <input type="date" id="taskDeadline" />
+            <input type="text" id="taskAssignee" placeholder="Assign to" />
+            <select id="taskStatus">
+              <option value="pending">Pending</option>
+              <option value="in-progress">In Progress</option>
+              <option value="completed">Completed</option>
+            </select>
+            <button id="addTaskBtn">➕ Add Task</button>
+            <button id="cancelEditBtn" style="display: none">
+              ✖ Cancel Edit
+            </button>
+            <button
+              id="undoDeleteBtn"
+              style="background: #9b59b6; color: #fff; display: none">
+              ↩ Undo Last Delete
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Side - Task List -->
+        <div class="task-list-section">
+          <h2>Task List</h2>
+          <!-- Filter & Sort Controls -->
+          <div class="controls">
+            <select id="filterCategory">
+              <option value="all">All Categories</option>
+              <option value="work">Work</option>
+              <option value="personal">Personal</option>
+              <option value="urgent">Urgent</option>
+            </select>
+            <select id="filterPriority">
+              <option value="all">All Priorities</option>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+            <select id="filterStatus">
+              <option value="all">All Status</option>
+              <option value="pending">Pending</option>
+              <option value="in-progress">In Progress</option>
+              <option value="completed">Completed</option>
+            </select>
+            <button id="sortDeadlineBtn">Sort by Deadline</button>
+            <button id="sortPriorityBtn">Sort by Priority</button>
+          </div>
+          <ul id="taskList"></ul>
+        </div>
+      </section>
+
+      <!-- Activity Log -->
+      <section class="activity-log">
+        <h2>Activity Log</h2>
+        <ul id="activityLog"></ul>
+      </section>
+
+      <hr class="bottom-line" />
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
